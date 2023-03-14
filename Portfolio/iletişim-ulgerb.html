@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Lexend+Deca:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="navbar\navbar-ulger.css">
+</head>
+
+<body>
+    <!-- ============= NAVBAR ============= -->
+    <nav class="navbar">
+        <div class="navbar-side">
+            <div class="navbar-top">
+                <div class="navbar-photo">
+                    <img src="photo/berkayprofil.jpg" alt="Basri Berkay Ülger">
+                </div>
+                <div class="navbar-name">
+                    <h3>Basri Berkay Ülger</h3>
+                </div>
+                <div class="navbar-social">
+                    <a href="https://www.instagram.com/ulger.b/?hl=tr" target="_blank" class="fab fa-instagram"
+                        onclick="soc(this)"></a>
+                    <a href="https://www.facebook.com/berkay.ulger/" target="_blank" class="fab fa-facebook"
+                        onclick="soc(this)"></a>
+                    <a href="https://www.youtube.com/channel/UC0v86FlvFjQAD_nh3b1KGag" target="_blank"
+                        class="fab fa-youtube" onclick="soc(this)"></a>
+                    <a href="https://github.com/ulgerb" target="_blank" class="fab fa-github" onclick="soc(this)"></a>
+                    <a href="https://www.linkedin.com/in/berkay-%C3%BClger-abb7b8215/" target="_blank"
+                        class="fab fa-linkedin" onclick="soc(this)"></a>
+                </div>
+            </div>
+            <div class="navbar-pages">
+                <a href="anasayfa-ulgerb.html" class="fa fa-home">
+                    <p>Anasayfa</p>
+                </a>
+                <a href="profil-ulgerb.html" class="fa fa-user">
+                    <p>Profil</p>
+                </a>
+                <a href="hakkında-ulgerb.html" class="fa fa-file-alt">
+                    <p>Hakkında</p>
+                </a>
+                <a href="port-ulgerb.html" class="fa fa-columns">
+                    <p>Portfolio</p>
+                </a>
+                <a href="servis-ulgerb.html" class="fa fa-server">
+                    <p>Servis</p>
+                </a>
+                <a href="iletişim-ulgerb.html" class="fa fa-contact-card">
+                    <p>İletişim</p>
+                </a>
+
+            </div>
+            <div class="navbar-bottom">
+                <p><small>Site design / logo © 2022 Ulgerb Inc; <br> user contributions licensed under ulgerb</small>
+                </p>
+            </div>
+        </div>
+    </nav>
+    <!-- ============= CONTACT ============= -->
+    <div class="contact">
+        <div class="contact-top">
+            <div>
+                <h2>Contact</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore obcaecati fugiat reiciendis non, saepe illum, ex laboriosam delectus quia earum voluptates exercitationem eius cumque inventore minima illo maiores esse corporis deserunt perferendis facere quasi! Recusandae cumque corporis necessitatibus nisi?</p>
+            </div>
+            <div class="contact-info">
+                <ul class="cont-list">
+                    <li class="fa fa-envelope"><p>Email : <small> berkayulger45920@gmail.com </small></p></li>
+                    <li class="fa fa-phone"><p>Telefon : <small> 05376925242 </small></p></li>
+                    <li class="fa fa-share-square">
+                        <p>Sosyal Medya : 
+                            <small>
+                                <div class="navbar-social">
+                                    <a href="https://www.instagram.com/ulger.b/?hl=tr" target="_blank" class="fab fa-instagram" onclick="soc(this)"></a>
+                                    <a href="https://www.facebook.com/berkay.ulger/" target="_blank" class="fab fa-facebook" onclick="soc(this)"></a>
+                                    <a href="https://www.youtube.com/channel/UC0v86FlvFjQAD_nh3b1KGag" target="_blank" class="fab fa-youtube"
+                                        onclick="soc(this)"></a>
+                                    <a href="https://github.com/ulgerb" target="_blank" class="fab fa-github" onclick="soc(this)"></a>
+                                    <a href="https://www.linkedin.com/in/berkay-%C3%BClger-abb7b8215/" target="_blank" class="fab fa-linkedin"
+                                        onclick="soc(this)"></a>
+                                </div>
+                            </small>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>        
+        
+        <div class="contact-top">
+            <div>
+                <form action="/action_page.php" autocomplete="on" class="contact-massage">
+                    <label for="fname">First name :</label>
+                    <input type="text" id="fname" name="fname" required autofocus><br>
+                    <label for="lname">Last name :</label>
+                    <input type="text" id="lname" name="lname" required><br>
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" autocomplete="off" required><br>
+                    <label for="phone">Telefon :</label>
+                    <input type="tel" id="phone" name="phone" required ><br>
+                    <label for="subject" >Konu(Subject) :</label><br>
+                    <textarea type="subject" id="subject" name="subject" rows="1" cols="10"></textarea><br>
+                    <label for="massage">Mesaj(Massage) :</label><br>
+                    <textarea type="massage" id="massage" name="massage" rows="8" cols="50"></textarea><br>
+
+                    
+                    <br><input type="submit" value="Gönder" class="enter">
+                </form>
+            </div>
+        </div>
+    
+    </div>
+    <script>
+        // function soc(item) {
+        //     item.style.transform = "translate(2px, 2px)";
+        //     item.style.background = "white";
+        // }
+
+    </script>
+</body>
+
+</html>
