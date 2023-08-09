@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+   </style>
+
+   <style>
+      * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+         font-family: 'Poppins', sans-serif;
+         scroll-behavior: smooth;
+      }
+
+      body,
+      html {
+         overflow-x: hidden;
+      }
+
+      a {
+         text-decoration: none;
+      }
+
+      ul {
+         list-style-type: none;
+      }
+
+      :root {
+         --color1: orange;
+         --color2: royalblue;
+         --color3: rgb(50, 183, 249);
+         --container: 200px;
+      }
+
+      /* HOVER TEXT START */
+      .hover-text {
+         position: relative;
+         display: inline-flex;
+      }
+
+      .hover-text:hover {
+         color: var(--color2);
+      }
+
+      .hover-text::before {
+         content: "";
+         width: 0;
+         height: 3.5px;
+         background-color: var(--color2);
+         border-radius: 5px;
+         display: inline-flex;
+         position: absolute;
+         bottom: -5px;
+         transition: all .4s;
+      }
+
+      .hover-text:hover::before {
+         width: 100%;
+      }
+
+      /* HOVER TEXT END */
+
+      .container-main {
+         /*
+         margin-left: auto;
+         margin-right: auto;
+         width: 1700px;*/
+      }
+
+      /* NAVBAR START */
+      .mynav {
+         padding: 20px var(--container);
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+
+      .mynav .logo {
+         width: 50px;
+      }
+
+      .mynav .nav-list {
+         display: flex;
+
+      }
+
+      .mynav .nav-link {
+         padding: 0 20px;
+      }
+
+      .mynav .nav-link a {
+         font-size: 1.25rem;
+         color: #222;
+         display: inline-flex;
+         position: relative;
+      }
+
+      .mynav .nav-link:hover a {
+         color: var(--color2);
+      }
+
+      .mynav .nav-link a::before {
+         content: "";
+         width: 0;
+         height: 3.5px;
+         background-color: var(--color2);
+         border-radius: 5px;
+         position: absolute;
+         bottom: -5px;
+         transition: all .4s;
+      }
+
+      .mynav .nav-link:hover a::before {
+         width: 100%;
+      }
+
+      .mynav .nav-link-contact {
+         padding: 0 20px;
+      }
+
+      .mynav .nav-link-contact a {
+         padding: 10px 30px;
+         color: #eee;
+         font-size: 1.25rem;
+         background-color: var(--color1);
+         border-radius: 40px 0px 40px 40px;
+         box-shadow: 0px 0px 8px 1px rgb(255, 166, 0);
+         text-shadow: 0px 0px 1px #eee;
+      }
+
+      .mynav .nav-link-contact a:hover {
+         background-color: rgb(248, 158, 0);
+         box-shadow: 0px 0px 8px 2px rgb(248, 158, 0);
+      }
+
+      .menu-btn {
+         display: none;
+         cursor: pointer;
+         position: relative;
+      }
+
+      .menu-btn svg {
+         width: 44px;
+         fill: var(--color1);
+      }
+
+      .menu-btn:hover .menu-list {
+         display: flex;
+         right: 0;
+         opacity: 1;
+      }
+
+      .menu-list {
+         padding: 40px 50px;
+         border-radius: 5px;
+         position: absolute !important;
+         display: flex;
+         opacity: 0;
+         flex-direction: column;
+         gap: 10px;
+         right: -300px;
+         background-color: #fefefed8;
+         z-index: 1000;
+         transition: all 1s;
+         box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+      }
+
+
+      /* NAVBAR END */
+
+      /* MAIN START */
+
+      /* CONTENT 1 */
+      .content1 {
+         min-height: 680px;
+         padding: 0px var(--container);
+         padding-bottom: 100px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      .content1 .subtitle {
+         color: var(--color2);
+         font-weight: 600;
+         font-size: 1.5rem;
+         text-shadow: 0px 0px 4px rgba(65, 105, 225, 0.454);
+      }
+
+      .content1 .title {
+         margin-top: 10px;
+         margin-bottom: 50px;
+         font-size: 4rem;
+         font-weight: 600;
+         line-height: 1;
+      }
+
+      .content1 .button-list {
+         display: flex;
+         gap: 30px;
+      }
+
+      .content1 .btn-my {
+         padding: 10px 30px;
+         max-height: 50px;
+         color: #eee;
+         font-size: 1.25rem;
+         background-color: var(--color1);
+         border-radius: 40px;
+         box-shadow: 0px 0px 8px 1px rgb(255, 166, 0);
+         text-shadow: 0px 0px 1px #eee;
+      }
+
+      .content1 .btn-my:hover {
+         background-color: rgb(248, 158, 0);
+         box-shadow: 0px 0px 8px 2px rgb(248, 158, 0);
+      }
+
+      .content1 .btn-play {
+         width: 50px;
+         height: 50px;
+         border: 2px solid black;
+         border-radius: 50%;
+         box-shadow: 0px 0px 8px 1px rgb(0, 0, 0);
+      }
+
+      .content1 .btn-play img {
+         width: 100%;
+      }
+
+      .content1 .btn-play:hover {
+         box-shadow: 0px 0px 10px 2px rgb(0, 0, 0);
+      }
+
+      .content1 .mydiv {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         position: relative;
+      }
+
+      .content1 .myport-con {
+         width: 500px;
+         height: 500px;
+         overflow: hidden;
+         display: flex;
+         align-items: end;
+         justify-content: end;
+         border-radius: 0 0 80% 700px;
+      }
+
+      .content1 .myport {
+         width: 400px;
+         height: 400px;
+         background-color: var(--color2);
+         border-radius: 50%;
+         position: relative;
+      }
+
+      .content1 .myport img {
+         width: 140%;
+         position: absolute;
+         left: -50px;
+         bottom: 0px;
+      }
+
+      .content1 .myshadow {
+         left: 100px;
+         top: 100px;
+         width: 400px;
+         height: 400px;
+         position: absolute;
+         border-radius: 50%;
+         background-color: var(--color2);
+         box-shadow: 0px 0px 2px 30px rgba(65, 105, 225, 0.08),
+            0px 0px 2px 60px rgba(65, 105, 225, 0.08),
+            0px 0px 2px 110px rgba(65, 105, 225, 0.08);
+      }
+
+      /* CARD 1 */
+      .content1 .card1 {
+         padding: 20px;
+         position: absolute;
+         background-color: #fff;
+         border-radius: 10px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 5px;
+         top: 50px;
+         right: -60px;
+      }
+
+      .content1 .card-star svg {
+         width: 40px;
+         border-radius: 50%;
+      }
+
+      /* CARD 2 */
+      .content1 .card2 {
+         padding: 20px;
+         position: absolute;
+         background-color: #fff;
+         border-radius: 10px;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+         top: 150px;
+         left: -60px;
+      }
+
+      .content1 .card2>img:first-child {
+         width: 40px;
+         height: 40px;
+         object-fit: cover;
+         object-position: -10px;
+         border-radius: 50%;
+      }
+
+      /* CARD 3 */
+      .content1 .card3 {
+         padding: 30px;
+         position: absolute;
+         background-color: #fff;
+         border-radius: 10px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 10px;
+         bottom: 0px;
+         left: 60px;
+      }
+
+      .crd {
+         transition: all .4s;
+         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      }
+
+      .crd:hover {
+         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+         scale: 1.1;
+      }
+
+      .content1 .card-profils {
+         margin-left: 20px;
+         display: flex;
+      }
+
+      .content1 .card-profils img {
+         margin-left: -20px;
+         width: 40px;
+         height: 40px;
+         object-fit: cover;
+         object-position: -10px;
+         border-radius: 50%;
+      }
+
+      .content1 .card-profils :last-child {
+         margin-left: -20px;
+         width: 40px;
+         height: 40px;
+         background: var(--color3);
+         border-radius: 50%;
+         font-size: .8rem;
+         color: white;
+         font-weight: 600;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      /* CONTENT 2 */
+      .content2 {
+         padding: 40px var(--container);
+         text-align: center;
+      }
+
+      .content2>.title {
+         margin-bottom: 10px;
+         font-size: 2rem;
+      }
+
+      .content2>.text {
+         text-align: center;
+      }
+
+      .content2-card-list {
+         margin-top: 50px;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         gap: 10px;
+      }
+
+      .content2-card {
+         padding: 20px;
+         flex: 1 1 auto;
+         width: 30%;
+         height: 400px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         gap: 50px;
+         box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+         transition: all .8s;
+      }
+
+      .content2-card img {
+         width: 100px;
+      }
+
+      .content2-card h4 {
+         font-size: 1.25rem;
+         font-weight: 500;
+      }
+
+      .content2-card p {
+         margin-top: 5px;
+         color: #777;
+      }
+
+      .content2-card:hover {
+         box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+      }
+
+      /* MAIN END */
+
+      /* FOOTER START */
+      .myfooter{
+         padding: 50px 0px;
+         display: flex;
+         flex-direction: column;
+         gap: 30px;
+         background-color: #f1f1f1;
+         box-shadow: 0px -2px 0px 0px #22222230;
+      }
+      .myfooter .footer-list{
+         margin: 0 40px;
+         display: flex;
+         justify-content: center;
+         gap: 20px;
+         flex-wrap: wrap;
+      }
+      .myfooter .footer-link{
+      }
+      .myfooter .social{
+         display: flex;
+         justify-content: center;
+         gap: 10px;
+      }
+      .myfooter .social-link {}
+      .myfooter .social-link img{
+         width: 40px;
+      }
+      /* FOOTER EDN */
+      
+      /* MEDIA START */
+      @media screen and (max-width:1400px) {
+         :root {
+            --container: 150px;
+         }
+      }
+
+      @media screen and (max-width:1200px) {
+         :root {
+            --container: 100px;
+         }
+
+         /* CONTENT 1 */
+
+
+         .mydiv-scale {
+            scale: .8;
+            /**/
+         }
+
+         .content1 .mydiv {
+            width: 400px;
+            /**/
+         }
+
+         .content1 .card1 {
+            top: 0px;
+            /**/
+            right: 200px;
+            /**/
+         }
+
+         /* CARD 2 */
+         .content1 .card2 {
+            top: 400px;
+            /**/
+            left: 300px;
+            /**/
+         }
+
+         /* CARD 3 */
+         .content1 .card3 {
+            bottom: 80px;
+            /**/
+            left: 40px;
+            /**/
+         }
+      }
+
+      @media screen and (max-width:992px) {
+         :root {
+            --container: 50px;
+         }
+
+         .nav-list {
+            display: none !important;
+         }
+
+         .menu-btn {
+            display: block;
+         }
+
+         .content1 {
+            flex-direction: column;
+            align-items: start;
+         }
+
+         .title-con {
+            width: 100%;
+            order: 2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+         }
+
+         .button-list {
+            align-items: end;
+            margin-bottom: 50px;
+         }
+
+         .mydiv {
+            margin: auto;
+            order: 1;
+            margin-bottom: 100px;
+         }
+      }
+
+      @media screen and (max-width:768px) {
+         :root {
+            --container: 20px;
+         }
+         .content2-card {
+            width: 40%;
+            min-height: 400px;
+         }
+      }
+
+      @media screen and (max-width:576px) {
+         .content2-card {
+            width: 100%;
+            min-height: 400px;
+         }
+         .mydiv{
+            width: 100% !important;
+            gap: 0px;
+            margin: 0;
+         }
+         .mydiv-scale{
+            margin-left: -50px;
+            scale: .5;
+         }
+         .title-con{
+            
+         }
+      }
+
+      @media screen and (max-width:420px) {}
+
+      /* MEDIA END */
+   </style>
+</head>
+
+<body>
+
+   <section class="container-main">
+      <!-- NAVBAR START -->
+      <header>
+         <nav class="mynav">
+            <img class="logo" src="	https://www.svgrepo.com/show/354408/sublimetext-icon.svg" alt="">
+            <div class="menu-btn">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                     d="M3.46447 20.5355C4.92893 22 7.28595 22 12 22C16.714 22 19.0711 22 20.5355 20.5355C22 19.0711 22 16.714 22 12C22 7.28595 22 4.92893 20.5355 3.46447C19.0711 2 16.714 2 12 2C7.28595 2 4.92893 2 3.46447 3.46447C2 4.92893 2 7.28595 2 12C2 16.714 2 19.0711 3.46447 20.5355ZM18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H18C18.4142 15.25 18.75 15.5858 18.75 16ZM18 12.75C18.4142 12.75 18.75 12.4142 18.75 12C18.75 11.5858 18.4142 11.25 18 11.25H6C5.58579 11.25 5.25 11.5858 5.25 12C5.25 12.4142 5.58579 12.75 6 12.75H18ZM18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H6C5.58579 8.75 5.25 8.41421 5.25 8C5.25 7.58579 5.58579 7.25 6 7.25H18C18.4142 7.25 18.75 7.58579 18.75 8Z" />
+               </svg>
+               <ul class="menu-list">
+                  <li class="nav-link"><a href="#">Home</a></li>
+                  <li class="nav-link"><a href="#">About</a></li>
+                  <li class="nav-link"><a href="#">Service</a></li>
+                  <li class="nav-link"><a href="#">Blog</a></li>
+                  <li class="nav-link"><a href="#port">Portfolio</a></li>
+                  <li class="nav-link"><a href="#">Contact</a></li>
+               </ul>
+            </div>
+            <ul class="nav-list">
+               <li class="nav-link"><a href="#">Home</a></li>
+               <li class="nav-link"><a href="#">About</a></li>
+               <li class="nav-link"><a href="#">Service</a></li>
+               <li class="nav-link"><a href="#">Blog</a></li>
+               <li class="nav-link"><a href="#port">Portfolio</a></li>
+               <li class="nav-link-contact"><a href="#">Contact</a></li>
+            </ul>
+         </nav>
+      </header>
+      <!-- NAVBAR END -->
+
+      <!-- MaIN START -->
+      <main>
+         <!-- Content 1 -->
+         <div class="content1">
+            <div class="title-con">
+               <div>
+                  <div class="subtitle">Ben Berkay Ülger</div>
+                  <div class="title">Fullstack <br> Developer</div>
+               </div>
+               <div class="button-list">
+                  <a class="btn-my" href="#">Beni Tanı</a>
+                  <a class="btn-play" href="#"><img src="https://www.svgrepo.com/show/494272/github-round.svg"
+                        alt=""></a>
+               </div>
+            </div>
+            <div class="mydiv">
+               <div class="mydiv-scale">
+                  <div class="myshadow"></div>
+                  <div class="myport-con">
+                     <div class="myport">
+                        <img src="img/im-svg2.png" alt="">
+                     </div>
+                  </div>
+                  <!-- CARD 1 -->
+                  <div class="card1 crd">
+                     <div class="card-star">
+                        <svg viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0">
+                              <rect x="-2.4" y="-2.4" width="28.80" height="28.80" rx="0" fill="#2abaea"
+                                 strokewidth="0">
+                              </rect>
+                           </g>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                           <g id="SVGRepo_iconCarrier">
+                              <path
+                                 d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                                 fill="#ffffff"></path>
+                           </g>
+                        </svg>
+                     </div>
+                     <div style="font-size: 1.25rem; font-weight: 600;">4k+</div>
+                     <p style="font-size: .75rem;">Lorem, ipsum.</p>
+                  </div>
+                  <!-- CARD 2 -->
+                  <div class="card2 crd">
+                     <img src="img/p2.jfif" alt="">
+                     <div>
+                        <p style="font-size: .8rem;">Lorem ipsum</p>
+                        <div style="display: flex; ">
+                           <img width="15px" src="https://www.svgrepo.com/show/355259/star.svg" alt="">
+                           <img width="15px" src="https://www.svgrepo.com/show/355259/star.svg" alt="">
+                           <img width="15px" src="https://www.svgrepo.com/show/355259/star.svg" alt="">
+                           <img width="15px" src="https://www.svgrepo.com/show/355259/star.svg" alt="">
+                           <img width="15px" src="https://www.svgrepo.com/show/355262/star-half.svg" alt="">
+                           <span style="font-size: .75rem; margin-left: 5px;">4.5</span>
+                        </div>
+                     </div>
+                     <img style="width: 40px; rotate: 90deg;" src="https://www.svgrepo.com/show/375943/arrow-up.svg"
+                        alt="">
+                  </div>
+                  <!-- CARD 3 -->
+                  <div class="card3 crd">
+                     <div class="card-profils">
+                        <img src="img/p1.jfif" alt="">
+                        <img src="img/p3.jfif" alt="">
+                        <img src="img/p4.jpg" alt="">
+                        <img src="img/p5.jpg" alt="">
+                        <div>50+</div>
+                     </div>
+                     <p>Lorem, ipsum</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Content 2 -->
+         <div class="content2" id="port">
+            <h2 class="title hover-text">Provide You Best Best Website</h2>
+            <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque soluta quos totam, velit
+               nisi natus.</p>
+
+            <!-- CARD LİST -->
+            <div class="content2-card-list">
+               <div class="content2-card">
+                  <img src="https://www.svgrepo.com/show/301021/monitor.svg" alt="">
+                  <div>
+                     <h4>Lorem ipsum</h4>
+                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, exercitationem?</p>
+                  </div>
+               </div>
+               <div class="content2-card">
+                  <img src="https://www.svgrepo.com/show/530123/chip.svg" alt="">
+                  <div>
+                     <h4>Lorem ipsum</h4>
+                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, exercitationem?</p>
+                  </div>
+               </div>
+               <div class="content2-card">
+                  <img src="https://www.svgrepo.com/show/491946/business-color-board-30.svg" alt="">
+                  <div>
+                     <h4>Lorem ipsum</h4>
+                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, exercitationem?</p>
+                  </div>
+               </div>
+               <div class="content2-card">
+                  <img src="https://www.svgrepo.com/show/491948/weather-color-moon-cloud-light.svg" alt="">
+                  <div>
+                     <h4>Lorem ipsum</h4>
+                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, exercitationem?</p>
+                  </div>
+               </div>
+               <div class="content2-card">
+                  <img src="https://www.svgrepo.com/show/491937/transportation-color-moto.svg" alt="">
+                  <div>
+                     <h4>Lorem ipsum</h4>
+                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, exercitationem?</p>
+                  </div>
+               </div>
+               <div class="content2-card">
+                  <img src="https://www.svgrepo.com/show/485231/icon-for-s-that-can-be-used-in-business-part-3.svg"
+                     alt="">
+                  <div>
+                     <h4>Lorem ipsum</h4>
+                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, exercitationem?</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <!-- MaIN END -->
+
+      <footer>
+         <div class="myfooter">
+            <ul class="footer-list">
+               <li class="footer-link"><a href="#">Home</a></li>
+               <li class="footer-link"><a href="#">About</a></li>
+               <li class="footer-link"><a href="#">Service</a></li>
+               <li class="footer-link"><a href="#">Blog</a></li>
+               <li class="footer-link"><a href="#port">Portfolio</a></li>
+               <li class="footer-link"><a href="#">Contact</a></li>
+            </ul>
+            <div class="social">
+               <a class="social-link" href="#"><img src="https://www.svgrepo.com/show/452047/linkedin-1.svg" alt=""></a>
+               <a class="social-link" href="#"><img src="https://www.svgrepo.com/show/452231/instagram.svg" alt=""></a>
+               <a class="social-link" href="#"><img src="https://www.svgrepo.com/show/503359/github.svg" alt=""></a>
+               <a class="social-link" href="#"><img src="https://www.svgrepo.com/show/452197/facebook.svg" alt=""></a>
+            </div>
+         </div>
+      </footer>
+   </section>
+
+</body>
+
+</html>
